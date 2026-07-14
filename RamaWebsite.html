@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rama's Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background:
+                linear-gradient(rgba(255,236,238,.90), rgba(255,236,238,.90)),
+                url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            
+        }
+
+        nav{
+            position:fixed;
+            width:100%;
+            top:0;
+            left:0;
+            z-index:999;
+            backdrop-filter: blur(20px);
+            background:rgba(255,255,255,.45);
+            padding:18px 10%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom:1px solid #ffd4de;
+        }
+
+        nav h2{
+            color:#db6f91;
+        }
+
+        nav ul{
+            display:flex;
+            list-style:none;
+            gap:30px;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:#555;
+            font-weight:500;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#db6f91;
+        }
+
+        section{
+            padding:110px 10%;
+        }
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:60px;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        .hero-text h1{
+            font-size:58px;
+            color:#d76889;
+        }
+
+        .hero-text h2{
+            font-size:26px;
+            margin:20px 0;
+            color:#555;
+        }
+
+        .hero-text p{
+            line-height:1.9;
+            margin-bottom:30px;
+        }
+
+        .btn{
+            display:inline-block;
+            background:#feb1c6;
+            color:white;
+            text-decoration:none;
+            padding:14px 34px;
+            border-radius:40px;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#db6f91;
+        }
+
+        .hero img{
+            width:330px;
+            border-radius:50%;
+            border:8px solid white;
+            box-shadow:0 20px 40px rgba(0,0,0,.15);
+        }
+
+        .title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .title h2{
+            font-size:40px;
+            color:#d76889;
+            margin-bottom:10px;
+        }
+
+        .card{
+            background:rgba(255,255,255,.5);
+            backdrop-filter:blur(18px);
+            border-radius:20px;
+            padding:35px;
+            box-shadow:0 10px 30px rgba(0,0,0,.08);
+            border:1px solid rgba(255,255,255,.7);
+        }
+
+        .about p{
+            line-height:2;
+        }
+
+        .education{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:25px;
+        }
+
+        .education .card{
+            text-align:center;
+        }
+
+        .projects{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:30px;
+        }
+
+        .project{
+            background:white;
+            border-radius:18px;
+            padding:25px;
+            transition:.4s;
+            border-top:7px solid #feb1c6;
+            box-shadow:0 15px 30px rgba(0,0,0,.08);
+        }
+
+        .project:hover{
+            transform:translateY(-8px);
+        }
+
+        .project h3{
+            margin-bottom:15px;
+            color:#d76889;
+        }
+
+        .project p{
+            line-height:1.8;
+            font-size:15px;
+        }
+
+        .skills{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+        }
+
+        .skills ul{
+            margin-top:15px;
+            padding-left:20px;
+            line-height:2;
+        }
+
+        .certificates{
+            display:grid;
+            gap:20px;
+        }
+
+        .certificate{
+            background:white;
+            padding:25px;
+            border-left:8px solid #feb1c6;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.08);
+        }
+
+        .contact{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .contact .card{
+            text-align:center;
+        }
+
+        footer{
+            text-align:center;
+            padding:35px;
+            background:#ffc9d6;
+            color:#555;
+            margin-top:50px;
+        }
+
+        @media(max-width:900px){
+
+            .hero{
+                flex-direction:column-reverse;
+                text-align:center;
+            }
+
+            nav{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav ul{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero-text h1{
+                font-size:42px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>Rama's Website</h2>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>Get to know me,<br>Rama Alhamdan!</h1>
+
+<h2>
+Welcome to my personal portfolio website, where I share my educational journey, technical skills, projects, and achievements throughout my Information Technology studies.
+</h2>
+
+<p>
+
+Hi! I'm <b>Rama Alhamdan</b>, an Information Technology student at Qassim University with a passion for software development, databases, and creating useful digital solutions. I enjoy learning new technologies, solving challenging problems, and continuously improving my technical skills.
+
+</p>
+
+<a href="#about" class="btn">Explore More</a>
+
+</div>
+
+<img src="RAlogo.jpg" alt="Rama">
+
+</section>
+
+<section id="about">
+
+<div class="title">
+
+<h2>👋 About Me</h2>
+
+<p>Who am I?</p>
+
+</div>
+
+<div class="card about">
+
+<p>
+
+I am an undergraduate Information Technology student with hands-on experience in database systems, web development, and mobile application development. I have worked with SQL and Oracle databases, software engineering principles, system analysis and design, and several academic projects. I enjoy collaborating with others, solving problems, and applying technology to create practical solutions that make a real impact.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<div class="title">
+
+<h2>💻 Education</h2>
+
+</div>
+
+<div class="education">
+
+<div class="card">
+
+<h3>Qassim University</h3>
+
+<p>
+
+Senior Information Technology student pursuing my bachelor's degree with an Excellent academic standing. My studies focus on programming, databases, software engineering, networking, system analysis, and emerging technologies.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Career Goal</h3>
+
+<p>
+
+To become a professional IT specialist capable of designing efficient systems, developing innovative software solutions, and contributing to modern technology projects.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<div class="title">
+
+<h2>🚀 Projects</h2>
+
+</div>
+
+<div class="projects">
+
+<div class="project">
+<h3>Bank System Database (SQL)</h3>
+<p>
+Designed and built a relational database using SQL by creating tables, defining relationships, and writing queries to efficiently organize and manage banking data.
+</p>
+</div>
+
+<div class="project">
+<h3>Qassim University Library Database</h3>
+<p>
+Created an Oracle database solution for managing library resources, users, borrowing activities, and overall library operations.
+</p>
+</div>
+
+<div class="project">
+<h3>Pet Adoption Website</h3>
+<p>
+Developed a responsive website using HTML, CSS, JavaScript, and PHP with interactive features and basic backend functionality for pet adoption services.
+</p>
+</div>
+
+<div class="project">
+<h3>Hotel Reservation System</h3>
+<p>
+Designed a hotel reservation system during the Information Systems Analysis and Design course, including system requirements, diagrams, and business process modeling.
+</p>
+</div>
+
+<div class="project">
+<h3>Librio – Book Reading Interface</h3>
+<p>
+Designed an HCI-based reading interface that focuses on improving usability, accessibility, and overall user experience for digital readers.
+</p>
+</div>
+
+<div class="project">
+<h3>Billing System</h3>
+<p>
+Developed a billing calculation system by applying software engineering concepts, structured design methodologies, and efficient calculation processes.
+</p>
+</div>
+
+<div class="project">
+<h3>IoT House Energy Prediction</h3>
+<p>
+Built a machine learning project that predicts house energy consumption using IoT sensor data and presents the results through an interactive dashboard for easier monitoring and decision-making.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<div class="title">
+
+<h2>🛠 Skills</h2>
+
+</div>
+
+<div class="skills">
+
+<div class="card">
+
+<h3>Hard Skills</h3>
+
+<ul>
+
+<li>C</li>
+<li>C++</li>
+<li>Python</li>
+<li>Java</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>PHP</li>
+<li>SQL</li>
+<li>Oracle Database</li>
+<li>Android Studio</li>
+<li>Software Engineering</li>
+<li>Virtual Machine</li>
+<li>Digital Systems</li>
+<li>MS Office</li>
+<li>Data Science & Analysis</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Soft Skills</h3>
+
+<ul>
+
+<li>Effective Communication</li>
+<li>Problem Solving</li>
+<li>Teamwork</li>
+<li>Analytical Thinking</li>
+<li>Time Management</li>
+<li>Adaptability</li>
+<li>Eager to Learn</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="certificates">
+
+<div class="title">
+
+<h2>📜 Certificates</h2>
+
+</div>
+
+<div class="certificates">
+
+<div class="certificate">
+
+<h3>Oracle Database 12c: Basic SQL & Advanced SQL</h3>
+
+</div>
+
+<div class="certificate">
+
+<h3>MTA Database Fundamentals (98-364) Cert Prep: Database Administration</h3>
+
+</div>
+
+<div class="certificate">
+
+<h3>Oracle Database 12c: Administration</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="title">
+
+<h2>📬 Contact</h2>
+
+</div>
+
+<div class="contact">
+
+<div class="card">
+
+    <h3>Email</h3>
+
+    <a href="mailto:RamaAlhamdan.wk@gmail.com">
+        RamaAlhamdan.wk@gmail.com
+    </a>
+
+</div>
+
+<div class="card">
+
+    <h3>LinkedIn</h3>
+
+    <a href="https://www.linkedin.com/in/rama-alhamdan" target="_blank">
+        linkedin.com/in/rama-alhamdan
+    </a>
+
+</div>
+
+<div class="card">
+
+    <h3>GitHub</h3>
+
+    <a href="https://github.com/ramahahamdan-prog" target="_blank">
+        github.com/ramahahamdan-prog
+    </a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Rama Alhamdan • Information Technology Student • Qassim University
+
+</p>
+
+</footer>
+
+</body>
+</html>
